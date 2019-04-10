@@ -17,7 +17,7 @@ from backtesting import backtesting_enabled
 from config import CONFIG_CRYPTO_CURRENCIES, CONFIG_EVALUATORS_WILDCARD
 from evaluator import TA
 from evaluator.TA import TAEvaluator
-from evaluator.Updaters.global_price_updater import GlobalPriceUpdater
+from core.global_price_updater import GlobalPriceUpdater
 from evaluator.cryptocurrency_evaluator import CryptocurrencyEvaluator
 from evaluator.evaluator_creator import EvaluatorCreator
 from evaluator.evaluator_task_manager import EvaluatorTaskManager

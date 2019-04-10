@@ -13,3 +13,9 @@
 #
 #  You should have received a copy of the GNU Lesser General Public
 #  License along with this library.
+from core.producers.producers import ExchangeProducer
+
+
+class OrderBookProducer(ExchangeProducer):
+    def __init__(self, config, exchange):
+        super().__init__(config, exchange)

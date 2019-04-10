@@ -34,7 +34,7 @@ class CryptoFeedWebSocketClient(WebSocket):
 
     def __init__(self, config, exchange_manager):
         super().__init__(config, exchange_manager)
-
+        self.exchange_manager = exchange_manager
         self.cryptofeed_handler = None
 
         self.open_sockets_keys = {}
@@ -112,7 +112,7 @@ class CryptoFeedWebSocketClient(WebSocket):
             # add real time handler
             self._add_feed_and_run_if_required(
                 TRADES,
-                OHLCV(Callback(OHLCVCallBack(self, 0).ohlcv_callback), window=0))
+                OHLCV(Callback(OHLCVCallBack(self, TimeFrames.REAL_TIME).ohlcv_callback), window=0))
 
             self.is_handling_ohlcv = True
         else:

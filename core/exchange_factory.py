@@ -18,7 +18,7 @@ import ccxt.async_support as ccxt
 
 from backtesting import backtesting_enabled
 from config import CONFIG_EXCHANGES
-from evaluator.Updaters.global_price_updater import GlobalPriceUpdater
+from core.global_price_updater import GlobalPriceUpdater
 from tools.logging.logging_util import get_logger
 from trading.exchanges.exchange_manager import ExchangeManager
 from trading.trader.previous_trading_state_manager import PreviousTradingStateManager

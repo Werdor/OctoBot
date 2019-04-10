@@ -13,3 +13,13 @@
 #
 #  You should have received a copy of the GNU Lesser General Public
 #  License along with this library.
+
+"""
+Handle or frequently update balance changes
+"""
+from core.producers.producers import ExchangeProducer
+
+
+class BalanceProducer(ExchangeProducer):
+    def __init__(self, config, exchange):
+        super().__init__(config, exchange)

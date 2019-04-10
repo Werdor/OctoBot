@@ -132,10 +132,10 @@ class AbstractEvaluator:
         return self.is_to_be_started_as_task
 
     # generic eval that will call the indicator eval_impl()
-    async def eval(self) -> None:
+    async def eval(self, eval_trigger_tag=None) -> None:
         try:
             self.ensure_eval_note_is_not_expired()
-            await self.eval_impl()
+            await self.eval_impl(eval_trigger_tag=eval_trigger_tag)
         except Exception as e:
             if ConfigManager.is_in_dev_mode(self.config):
                 raise e
@@ -156,7 +156,7 @@ class AbstractEvaluator:
     #           self.need_to_notify = True
     #       self.eval_note += note
     @abstractmethod
-    async def eval_impl(self) -> None:
+    async def eval_impl(self, eval_trigger_tag=None) -> None:
         raise NotImplementedError("Eval_impl not implemented")
 
     # reset temporary parameters to enable fresh start

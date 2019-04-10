@@ -17,7 +17,7 @@
 from tools.logging.logging_util import get_logger
 
 from backtesting import backtesting_enabled
-from evaluator.Updaters.social_evaluator_not_tasked_update_task import SocialEvaluatorNotTaskedUpdateTask
+from tools.social_evaluator_not_tasked_update_task import SocialEvaluatorNotTaskedUpdateTask
 from evaluator.evaluator_creator import EvaluatorCreator
 from config import CONFIG_EVALUATORS_WILDCARD
 

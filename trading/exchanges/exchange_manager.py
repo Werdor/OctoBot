@@ -25,6 +25,7 @@ from tools.symbol_util import split_symbol
 from tools.time_frame_manager import TimeFrameManager
 from tools.timestamp_util import is_valid_timestamp
 from trading.exchanges.exchange_dispatcher import ExchangeDispatcher
+from trading.exchanges.exchange_producers_manager import ExchangeProducersManager
 from trading.exchanges.exchange_simulator.exchange_simulator import ExchangeSimulator
 from trading.exchanges.rest_exchanges.rest_exchange import RESTExchange
 from trading.exchanges.websockets_exchanges.user_websocket.user_websocket import UserWebSocket
@@ -50,6 +51,8 @@ class ExchangeManager(Initializable):
         self.exchange_web_socket = None
         self.exchange_user_web_socket = None
         self.exchange_dispatcher = None
+        self.exchange_producers_manager = None
+
         self.trader = None
 
         self.last_web_socket_reset = None
@@ -111,6 +114,8 @@ class ExchangeManager(Initializable):
 
         self.exchange_dispatcher = ExchangeDispatcher(self.config, self.exchange_type, self.exchange,
                                                       self.exchange_web_socket, self.exchange_user_web_socket)
+
+        self.exchange_producers_manager = ExchangeProducersManager(self)
 
         self.is_ready = True
 
